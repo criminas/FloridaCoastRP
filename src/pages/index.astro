@@ -1,0 +1,366 @@
+---
+import "../styles/global.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Florida Coast Roleplay — A structured, realistic roleplay community on Roblox featuring law enforcement, fire rescue, and civilian operations in Fort Lauderdale and Broward County."
+		/>
+		<title>Florida Coast Roleplay</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="nav">
+			<div class="nav-inner container">
+				<a href="/" class="nav-brand">Florida Coast</a>
+				<ul class="nav-links">
+					<li><a href="#departments">Departments</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#gallery">Gallery</a></li>
+					<li>
+						<a
+							href="https://discord.gg/YcBhpB3pxU"
+							target="_blank"
+							class="nav-cta">Join Us</a
+						>
+					</li>
+				</ul>
+				<button class="nav-toggle" aria-label="Toggle navigation menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</nav>
+
+		<!-- Hero -->
+		<section class="hero">
+			<div class="hero-bg">
+				<img
+					src="/banner.webp"
+					alt="Florida Coast Roleplay — Fort Lauderdale Police Department scene"
+				/>
+			</div>
+			<div class="hero-overlay"></div>
+			<div class="hero-content container">
+				<p class="hero-subtitle">
+					A structured roleplay community set in Fort Lauderdale and
+					Broward County. Realistic departments. Dedicated staff.
+					Active operations.
+				</p>
+				<div class="hero-actions">
+					<a
+						href="https://discord.gg/YcBhpB3pxU"
+						target="_blank"
+						class="btn btn-primary">Join the Community</a
+					>
+					<a href="#departments" class="btn btn-outline"
+						>View Departments</a
+					>
+				</div>
+			</div>
+		</section>
+
+		<!-- Stats Bar -->
+		<section class="stats">
+			<div class="stats-inner container">
+				<div class="stat" data-animate>
+					<span class="stat-value">3</span>
+					<span class="stat-label">Active Departments</span>
+				</div>
+				<div class="stat" data-animate>
+					<span class="stat-value">24/7</span>
+					<span class="stat-label">Operations</span>
+				</div>
+				<div class="stat" data-animate>
+					<span class="stat-value">RP</span>
+					<span class="stat-label">Realistic Scenarios</span>
+				</div>
+				<div class="stat" data-animate>
+					<span class="stat-value">Staff</span>
+					<span class="stat-label">Dedicated Team</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Departments -->
+		<section class="departments" id="departments">
+			<div class="container">
+				<div class="section-header" data-animate>
+					<p class="section-label">Our Departments</p>
+					<h2 class="section-title">Serve, Protect, Respond</h2>
+					<p class="section-desc">
+						Three core departments working together to deliver a
+						coordinated and realistic roleplay experience.
+					</p>
+				</div>
+				<div class="dept-grid">
+					<article class="dept-card" data-animate>
+						<div class="dept-image">
+							<img
+								src="/house.webp"
+								alt="Fort Lauderdale Police Department patrol vehicle at a residential scene"
+							/>
+						</div>
+						<div class="dept-body">
+							<h3 class="dept-name">Law Enforcement</h3>
+							<p class="dept-location">
+								Fort Lauderdale Police Dept.
+							</p>
+							<p class="dept-desc">
+								Patrol operations, traffic enforcement, and
+								investigative units providing structured law
+								enforcement roleplay across the city.
+							</p>
+						</div>
+					</article>
+					<article class="dept-card" data-animate>
+						<div class="dept-image">
+							<img
+								src="/ems.webp"
+								alt="Fire rescue and EMS vehicles responding on a highway"
+							/>
+						</div>
+						<div class="dept-body">
+							<h3 class="dept-name">Fire &amp; EMS</h3>
+							<p class="dept-location">
+								Broward County Fire Rescue
+							</p>
+							<p class="dept-desc">
+								Engine companies, rescue units, and EMS
+								operations covering emergency response,
+								structure fires, and medical calls.
+							</p>
+						</div>
+					</article>
+					<article class="dept-card" data-animate>
+						<div class="dept-image">
+							<img
+								src="/sheriff.webp"
+								alt="Broward County Sheriff's Office vehicle"
+							/>
+						</div>
+						<div class="dept-body">
+							<h3 class="dept-name">Sheriff&rsquo;s Office</h3>
+							<p class="dept-location">Broward County Sheriff</p>
+							<p class="dept-desc">
+								County wide jurisdiction with patrol,
+								corrections, and specialty units supporting
+								regional law enforcement operations.
+							</p>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- About -->
+		<section class="about" id="about">
+			<div class="container">
+				<div class="about-grid">
+					<div class="about-image" data-animate>
+						<img
+							src="/screenshot.webp"
+							alt="Aerial view of a multi agency response scene in Florida Coast Roleplay"
+						/>
+					</div>
+					<div class="about-content" data-animate>
+						<p class="section-label">About the Community</p>
+						<h2 class="section-title">
+							Built on Structure and Realism
+						</h2>
+						<p class="about-text">
+							Florida Coast Roleplay is a Roblox community focused
+							on delivering a grounded, well organized roleplay
+							experience. Our departments operate with realistic
+							protocols, chain of command structures, and
+							coordinated multi agency responses.
+						</p>
+						<p class="about-text">
+							Whether you're interested in law enforcement, fire
+							and rescue, or civilian roles, our community offers
+							a welcoming environment for dedicated roleplayers
+							who value quality and consistency.
+						</p>
+						<ul class="about-features">
+							<li>
+								<svg
+									class="check-icon"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									width="20"
+									height="20"
+									><path
+										fill-rule="evenodd"
+										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+										clip-rule="evenodd"></path>
+								</svg>
+								Structured training and onboarding
+							</li>
+							<li>
+								<svg
+									class="check-icon"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									width="20"
+									height="20"
+									><path
+										fill-rule="evenodd"
+										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+										clip-rule="evenodd"></path>
+								</svg>
+								Realistic protocols and procedures
+							</li>
+							<li>
+								<svg
+									class="check-icon"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									width="20"
+									height="20"
+									><path
+										fill-rule="evenodd"
+										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+										clip-rule="evenodd"></path>
+								</svg>
+								Active staff and leadership team
+							</li>
+							<li>
+								<svg
+									class="check-icon"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									width="20"
+									height="20"
+									><path
+										fill-rule="evenodd"
+										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+										clip-rule="evenodd"></path>
+								</svg>
+								Multi agency coordination scenarios
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Gallery -->
+		<section class="gallery" id="gallery">
+			<div class="container">
+				<div class="section-header" data-animate>
+					<p class="section-label">Gallery</p>
+					<h2 class="section-title">In Action</h2>
+					<p class="section-desc">
+						Scenes from active operations across Fort Lauderdale and
+						Broward County.
+					</p>
+				</div>
+				<div class="gallery-grid">
+					<div class="gallery-item gallery-item-wide" data-animate>
+						<img
+							src="/image.webp"
+							alt="Broward County Sheriff fire rescue ladder truck responding to a scene"
+						/>
+					</div>
+					<div class="gallery-item" data-animate>
+						<img
+							src="/ems.webp"
+							alt="Fire rescue and EMS vehicles on a highway"
+						/>
+					</div>
+					<div class="gallery-item" data-animate>
+						<img
+							src="/house.webp"
+							alt="Police patrol vehicle at a residential scene at night"
+						/>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Join CTA -->
+		<section class="join" id="join">
+			<div class="container">
+				<div class="join-card" data-animate>
+					<h2 class="join-title">Ready to Join?</h2>
+					<p class="join-desc">
+						Florida Coast Roleplay is open to new members. Connect
+						with us on Discord to get started with onboarding and
+						find your department.
+					</p>
+					<div class="join-actions">
+						<a
+							href="https://discord.gg/YcBhpB3pxU"
+							target="_blank"
+							class="btn btn-primary btn-lg">Join Our Discord</a
+						>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="footer-inner container">
+				<div class="footer-brand">
+					<span class="footer-name">Florida Coast Roleplay</span>
+					<p class="footer-tagline">
+						Fort Lauderdale &amp; Broward County (NOT OFFICAL)
+					</p>
+				</div>
+				<div class="footer-links">
+					<a href="#departments">Departments</a>
+					<a href="#about">About</a>
+					<a href="#gallery">Gallery</a>
+					<a href="https://discord.gg/YcBhpB3pxU" target="_blank"
+						>Join</a
+					>
+				</div>
+				<p class="footer-copy">
+					&copy; 2026 Florida Coast Roleplay. All rights reserved.
+				</p>
+			</div>
+		</footer>
+
+		<script>
+			// Subtle fade-in on scroll
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("visible");
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+			);
+
+			document.querySelectorAll("[data-animate]").forEach((el) => {
+				observer.observe(el);
+			});
+
+			// Mobile nav toggle
+			const toggle = document.querySelector(".nav-toggle");
+			const navLinks = document.querySelector(".nav-links");
+			if (toggle && navLinks) {
+				toggle.addEventListener("click", () => {
+					navLinks.classList.toggle("open");
+					toggle.classList.toggle("active");
+				});
+			}
+		</script>
+	</body>
+</html>
