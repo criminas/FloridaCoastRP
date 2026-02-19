@@ -1,5 +1,44 @@
 ---
 import "../styles/global.css";
+
+const siteName = "Florida Coast Roleplay";
+const siteUrl = "https://floridacoastrp.vercel.app";
+const title = "Florida Coast Roleplay — Realistic Roblox RP Community";
+const description =
+	"Florida Coast Roleplay is a structured, realistic roleplay community on Roblox featuring law enforcement, fire rescue, and civilian operations in Fort Lauderdale and Broward County.";
+const ogImage = `${siteUrl}/banner.webp`;
+const canonicalUrl = siteUrl;
+const discordUrl = "https://discord.gg/YcBhpB3pxU";
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "Organization",
+			"@id": `${siteUrl}/#organization`,
+			name: siteName,
+			url: siteUrl,
+			description,
+			sameAs: [discordUrl],
+		},
+		{
+			"@type": "WebSite",
+			"@id": `${siteUrl}/#website`,
+			url: siteUrl,
+			name: siteName,
+			publisher: { "@id": `${siteUrl}/#organization` },
+		},
+		{
+			"@type": "WebPage",
+			"@id": `${siteUrl}/#webpage`,
+			url: siteUrl,
+			name: title,
+			description,
+			isPartOf: { "@id": `${siteUrl}/#website` },
+			about: { "@id": `${siteUrl}/#organization` },
+		},
+	],
+};
 ---
 
 <html lang="en">
@@ -7,11 +46,55 @@ import "../styles/global.css";
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Primary SEO -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalUrl} />
 		<meta
-			name="description"
-			content="Florida Coast Roleplay — A structured, realistic roleplay community on Roblox featuring law enforcement, fire rescue, and civilian operations in Fort Lauderdale and Broward County."
+			name="robots"
+			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 		/>
-		<title>Florida Coast Roleplay</title>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta
+			property="og:image:alt"
+			content="Florida Coast Roleplay — Fort Lauderdale Police Department scene"
+		/>
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:locale" content="en_US" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+		<meta
+			name="twitter:image:alt"
+			content="Florida Coast Roleplay — Fort Lauderdale Police Department scene"
+		/>
+
+		<!-- Additional Meta -->
+		<meta name="theme-color" content="#0f1117" />
+		<meta name="color-scheme" content="dark" />
+		<meta name="author" content={siteName} />
+		<meta
+			name="keywords"
+			content="Florida Coast Roleplay, Roblox RP, roleplay community, Fort Lauderdale, Broward County, law enforcement RP, fire rescue RP, EMS roleplay, Roblox roleplay server, realistic RP"
+		/>
+
+		<!-- JSON-LD Structured Data -->
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)}
+		></script>
+
+		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -19,6 +102,7 @@ import "../styles/global.css";
 			rel="stylesheet"
 		/>
 	</head>
+
 	<body>
 		<!-- Navigation -->
 		<nav class="nav">
