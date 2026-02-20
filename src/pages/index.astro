@@ -19,6 +19,9 @@ const jsonLd = {
 			name: siteName,
 			url: siteUrl,
 			description,
+			logo: `${siteUrl}/logo.png`,
+			image: ogImage,
+			areaServed: "Florida, United States",
 			sameAs: [discordUrl],
 		},
 		{
@@ -56,12 +59,21 @@ const jsonLd = {
 			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 		/>
 
+		<!-- Performance -->
+		<link rel="preload" as="image" href="/banner.webp" />
+
+		<!-- Icons -->
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={siteUrl} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:type" content="image/webp" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta
@@ -108,19 +120,26 @@ const jsonLd = {
 		<nav class="nav">
 			<div class="nav-inner container">
 				<a href="/" class="nav-brand">Florida Coast</a>
-				<ul class="nav-links">
+				<ul class="nav-links" aria-label="Primary navigation">
 					<li><a href="#departments">Departments</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#gallery">Gallery</a></li>
+					<li><a href="#faq">FAQ</a></li>
 					<li>
 						<a
-							href="https://discord.gg/YcBhpB3pxU"
+							href={discordUrl}
 							target="_blank"
+							rel="noopener noreferrer"
 							class="nav-cta">Join Us</a
 						>
 					</li>
 				</ul>
-				<button class="nav-toggle" aria-label="Toggle navigation menu">
+				<button
+					class="nav-toggle"
+					aria-label="Toggle navigation menu"
+					aria-expanded="false"
+					aria-controls="primary-nav"
+				>
 					<span></span>
 					<span></span>
 					<span></span>
@@ -128,272 +147,391 @@ const jsonLd = {
 			</div>
 		</nav>
 
-		<!-- Hero -->
-		<section class="hero">
-			<div class="hero-bg">
-				<img
-					src="/banner.webp"
-					alt="Florida Coast Roleplay — Fort Lauderdale Police Department scene"
-				/>
-			</div>
-			<div class="hero-overlay"></div>
-			<div class="hero-content container">
-				<p class="hero-subtitle">
-					A structured roleplay community set in Fort Lauderdale and
-					Broward County. Realistic departments. Dedicated staff.
-					Active operations.
-				</p>
-				<div class="hero-actions">
-					<a
-						href="https://discord.gg/YcBhpB3pxU"
-						target="_blank"
-						class="btn btn-primary">Join the Community</a
-					>
-					<a href="#departments" class="btn btn-outline"
-						>View Departments</a
-					>
+		<main>
+			<!-- Hero -->
+			<section class="hero" aria-labelledby="hero-title">
+				<div class="hero-bg">
+					<img
+						src="/banner.webp"
+						alt="Florida Coast Roleplay — Fort Lauderdale Police Department scene"
+						width="1920"
+						height="1080"
+					/>
 				</div>
-			</div>
-		</section>
-
-		<!-- Stats Bar -->
-		<section class="stats">
-			<div class="stats-inner container">
-				<div class="stat" data-animate>
-					<span class="stat-value">3</span>
-					<span class="stat-label">Active Departments</span>
-				</div>
-				<div class="stat" data-animate>
-					<span class="stat-value">24/7</span>
-					<span class="stat-label">Operations</span>
-				</div>
-				<div class="stat" data-animate>
-					<span class="stat-value">RP</span>
-					<span class="stat-label">Realistic Scenarios</span>
-				</div>
-				<div class="stat" data-animate>
-					<span class="stat-value">Staff</span>
-					<span class="stat-label">Dedicated Team</span>
-				</div>
-			</div>
-		</section>
-
-		<!-- Departments -->
-		<section class="departments" id="departments">
-			<div class="container">
-				<div class="section-header" data-animate>
-					<p class="section-label">Our Departments</p>
-					<h2 class="section-title">Serve, Protect, Respond</h2>
-					<p class="section-desc">
-						Three core departments working together to deliver a
-						coordinated and realistic roleplay experience.
+				<div class="hero-overlay"></div>
+				<div class="hero-content container">
+					<h1 class="hero-title" id="hero-title">
+						Florida Coast Roleplay
+					</h1>
+					<p class="hero-subtitle">
+						A structured roleplay community set in Fort Lauderdale
+						and Broward County. Realistic departments. Dedicated
+						staff. Active operations.
 					</p>
-				</div>
-				<div class="dept-grid">
-					<article class="dept-card" data-animate>
-						<div class="dept-image">
-							<img
-								src="/house.webp"
-								alt="Fort Lauderdale Police Department patrol vehicle at a residential scene"
-							/>
-						</div>
-						<div class="dept-body">
-							<h3 class="dept-name">Law Enforcement</h3>
-							<p class="dept-location">
-								Fort Lauderdale Police Dept.
-							</p>
-							<p class="dept-desc">
-								Patrol operations, traffic enforcement, and
-								investigative units providing structured law
-								enforcement roleplay across the city.
-							</p>
-						</div>
-					</article>
-					<article class="dept-card" data-animate>
-						<div class="dept-image">
-							<img
-								src="/ems.webp"
-								alt="Fire rescue and EMS vehicles responding on a highway"
-							/>
-						</div>
-						<div class="dept-body">
-							<h3 class="dept-name">Fire &amp; EMS</h3>
-							<p class="dept-location">
-								Broward County Fire Rescue
-							</p>
-							<p class="dept-desc">
-								Engine companies, rescue units, and EMS
-								operations covering emergency response,
-								structure fires, and medical calls.
-							</p>
-						</div>
-					</article>
-					<article class="dept-card" data-animate>
-						<div class="dept-image">
-							<img
-								src="/sheriff.webp"
-								alt="Broward County Sheriff's Office vehicle"
-							/>
-						</div>
-						<div class="dept-body">
-							<h3 class="dept-name">Sheriff&rsquo;s Office</h3>
-							<p class="dept-location">Broward County Sheriff</p>
-							<p class="dept-desc">
-								County wide jurisdiction with patrol,
-								corrections, and specialty units supporting
-								regional law enforcement operations.
-							</p>
-						</div>
-					</article>
-				</div>
-			</div>
-		</section>
-
-		<!-- About -->
-		<section class="about" id="about">
-			<div class="container">
-				<div class="about-grid">
-					<div class="about-image" data-animate>
-						<img
-							src="/screenshot.webp"
-							alt="Aerial view of a multi agency response scene in Florida Coast Roleplay"
-						/>
-					</div>
-					<div class="about-content" data-animate>
-						<p class="section-label">About the Community</p>
-						<h2 class="section-title">
-							Built on Structure and Realism
-						</h2>
-						<p class="about-text">
-							Florida Coast Roleplay is a Roblox community focused
-							on delivering a grounded, well organized roleplay
-							experience. Our departments operate with realistic
-							protocols, chain of command structures, and
-							coordinated multi agency responses.
-						</p>
-						<p class="about-text">
-							Whether you're interested in law enforcement, fire
-							and rescue, or civilian roles, our community offers
-							a welcoming environment for dedicated roleplayers
-							who value quality and consistency.
-						</p>
-						<ul class="about-features">
-							<li>
-								<svg
-									class="check-icon"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									width="20"
-									height="20"
-									><path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"></path>
-								</svg>
-								Structured training and onboarding
-							</li>
-							<li>
-								<svg
-									class="check-icon"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									width="20"
-									height="20"
-									><path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"></path>
-								</svg>
-								Realistic protocols and procedures
-							</li>
-							<li>
-								<svg
-									class="check-icon"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									width="20"
-									height="20"
-									><path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"></path>
-								</svg>
-								Active staff and leadership team
-							</li>
-							<li>
-								<svg
-									class="check-icon"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									width="20"
-									height="20"
-									><path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"></path>
-								</svg>
-								Multi agency coordination scenarios
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Gallery -->
-		<section class="gallery" id="gallery">
-			<div class="container">
-				<div class="section-header" data-animate>
-					<p class="section-label">Gallery</p>
-					<h2 class="section-title">In Action</h2>
-					<p class="section-desc">
-						Scenes from active operations across Fort Lauderdale and
-						Broward County.
-					</p>
-				</div>
-				<div class="gallery-grid">
-					<div class="gallery-item gallery-item-wide" data-animate>
-						<img
-							src="/image.webp"
-							alt="Broward County Sheriff fire rescue ladder truck responding to a scene"
-						/>
-					</div>
-					<div class="gallery-item" data-animate>
-						<img
-							src="/ems.webp"
-							alt="Fire rescue and EMS vehicles on a highway"
-						/>
-					</div>
-					<div class="gallery-item" data-animate>
-						<img
-							src="/house.webp"
-							alt="Police patrol vehicle at a residential scene at night"
-						/>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Join CTA -->
-		<section class="join" id="join">
-			<div class="container">
-				<div class="join-card" data-animate>
-					<h2 class="join-title">Ready to Join?</h2>
-					<p class="join-desc">
-						Florida Coast Roleplay is open to new members. Connect
-						with us on Discord to get started with onboarding and
-						find your department.
-					</p>
-					<div class="join-actions">
+					<div class="hero-actions">
 						<a
-							href="https://discord.gg/YcBhpB3pxU"
+							href={discordUrl}
 							target="_blank"
-							class="btn btn-primary btn-lg">Join Our Discord</a
+							rel="noopener noreferrer"
+							class="btn btn-primary">Join the Community</a
+						>
+						<a href="#departments" class="btn btn-outline"
+							>View Departments</a
 						>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+
+			<!-- Stats Bar -->
+			<section class="stats" aria-label="Community highlights">
+				<div class="stats-inner container">
+					<div class="stat" data-animate>
+						<span class="stat-value">3</span>
+						<span class="stat-label">Active Departments</span>
+					</div>
+					<div class="stat" data-animate>
+						<span class="stat-value">24/7</span>
+						<span class="stat-label">Operations</span>
+					</div>
+					<div class="stat" data-animate>
+						<span class="stat-value">RP</span>
+						<span class="stat-label">Realistic Scenarios</span>
+					</div>
+					<div class="stat" data-animate>
+						<span class="stat-value">Staff</span>
+						<span class="stat-label">Dedicated Team</span>
+					</div>
+				</div>
+			</section>
+
+			<!-- Departments -->
+			<section
+				class="departments"
+				id="departments"
+				aria-labelledby="departments-title"
+			>
+				<div class="container">
+					<div class="section-header" data-animate>
+						<p class="section-label">Our Departments</p>
+						<h2 class="section-title" id="departments-title">
+							Serve, Protect, Respond
+						</h2>
+						<p class="section-desc">
+							Three core departments working together to deliver a
+							coordinated and realistic roleplay experience.
+						</p>
+					</div>
+					<div class="dept-grid">
+						<article class="dept-card" data-animate>
+							<div class="dept-image">
+								<img
+									src="/house.webp"
+									alt="Fort Lauderdale Police Department patrol vehicle at a residential scene"
+									width="1200"
+									height="750"
+									loading="lazy"
+									decoding="async"
+								/>
+							</div>
+							<div class="dept-body">
+								<h3 class="dept-name">Law Enforcement</h3>
+								<p class="dept-location">
+									Fort Lauderdale Police Dept.
+								</p>
+								<p class="dept-desc">
+									Patrol operations, traffic enforcement, and
+									investigative units providing structured law
+									enforcement roleplay across the city.
+								</p>
+							</div>
+						</article>
+
+						<article class="dept-card" data-animate>
+							<div class="dept-image">
+								<img
+									src="/ems.webp"
+									alt="Fire rescue and EMS vehicles responding on a highway"
+									width="1200"
+									height="750"
+									loading="lazy"
+									decoding="async"
+								/>
+							</div>
+							<div class="dept-body">
+								<h3 class="dept-name">Fire &amp; EMS</h3>
+								<p class="dept-location">
+									Broward County Fire Rescue
+								</p>
+								<p class="dept-desc">
+									Engine companies, rescue units, and EMS
+									operations covering emergency response,
+									structure fires, and medical calls.
+								</p>
+							</div>
+						</article>
+
+						<article class="dept-card" data-animate>
+							<div class="dept-image">
+								<img
+									src="/sheriff.webp"
+									alt="Broward County Sheriff's Office vehicle"
+									width="1200"
+									height="750"
+									loading="lazy"
+									decoding="async"
+								/>
+							</div>
+							<div class="dept-body">
+								<h3 class="dept-name">
+									Sheriff&rsquo;s Office
+								</h3>
+								<p class="dept-location">
+									Broward County Sheriff
+								</p>
+								<p class="dept-desc">
+									County wide jurisdiction with patrol,
+									corrections, and specialty units supporting
+									regional law enforcement operations.
+								</p>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- About -->
+			<section class="about" id="about" aria-labelledby="about-title">
+				<div class="container">
+					<div class="about-grid">
+						<div class="about-image" data-animate>
+							<img
+								src="/screenshot.webp"
+								alt="Aerial view of a multi agency response scene in Florida Coast Roleplay"
+								width="1400"
+								height="900"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
+						<div class="about-content" data-animate>
+							<p class="section-label">About the Community</p>
+							<h2 class="section-title" id="about-title">
+								Built on Structure and Realism
+							</h2>
+							<p class="about-text">
+								Florida Coast Roleplay is a Roblox community
+								focused on delivering a grounded, well organized
+								roleplay experience. Our departments operate
+								with realistic protocols, chain of command
+								structures, and coordinated multi agency
+								responses.
+							</p>
+							<p class="about-text">
+								Whether you're interested in law enforcement,
+								fire and rescue, or civilian roles, our
+								community offers a welcoming environment for
+								dedicated roleplayers who value quality and
+								consistency.
+							</p>
+							<ul class="about-features">
+								<li>
+									<svg
+										class="check-icon"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+										width="20"
+										height="20"
+										aria-hidden="true"
+										focusable="false"
+										><path
+											fill-rule="evenodd"
+											d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+											clip-rule="evenodd"></path>
+									</svg>
+									Structured training and onboarding
+								</li>
+								<li>
+									<svg
+										class="check-icon"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+										width="20"
+										height="20"
+										aria-hidden="true"
+										focusable="false"
+										><path
+											fill-rule="evenodd"
+											d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+											clip-rule="evenodd"></path>
+									</svg>
+									Realistic protocols and procedures
+								</li>
+								<li>
+									<svg
+										class="check-icon"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+										width="20"
+										height="20"
+										aria-hidden="true"
+										focusable="false"
+										><path
+											fill-rule="evenodd"
+											d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+											clip-rule="evenodd"></path>
+									</svg>
+									Active staff and leadership team
+								</li>
+								<li>
+									<svg
+										class="check-icon"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+										width="20"
+										height="20"
+										aria-hidden="true"
+										focusable="false"
+										><path
+											fill-rule="evenodd"
+											d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+											clip-rule="evenodd"></path>
+									</svg>
+									Multi agency coordination scenarios
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Gallery -->
+			<section
+				class="gallery"
+				id="gallery"
+				aria-labelledby="gallery-title"
+			>
+				<div class="container">
+					<div class="section-header" data-animate>
+						<p class="section-label">Gallery</p>
+						<h2 class="section-title" id="gallery-title">
+							In Action
+						</h2>
+						<p class="section-desc">
+							Scenes from active operations across Fort Lauderdale
+							and Broward County.
+						</p>
+					</div>
+					<div class="gallery-grid">
+						<div
+							class="gallery-item gallery-item-wide"
+							data-animate
+						>
+							<img
+								src="/image.webp"
+								alt="Broward County Sheriff fire rescue ladder truck responding to a scene"
+								width="1600"
+								height="900"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
+						<div class="gallery-item" data-animate>
+							<img
+								src="/ems.webp"
+								alt="Fire rescue and EMS vehicles on a highway"
+								width="1200"
+								height="750"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
+						<div class="gallery-item" data-animate>
+							<img
+								src="/house.webp"
+								alt="Police patrol vehicle at a residential scene at night"
+								width="1200"
+								height="750"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- FAQ -->
+			<section class="faq" id="faq" aria-labelledby="faq-title">
+				<div class="container">
+					<div class="section-header" data-animate>
+						<p class="section-label">FAQ</p>
+						<h2 class="section-title" id="faq-title">
+							Frequently Asked Questions
+						</h2>
+						<p class="section-desc">
+							Quick answers to common questions about joining and
+							participating.
+						</p>
+					</div>
+
+					<div class="faq-list" data-animate>
+						<details class="faq-item">
+							<summary>How do I join?</summary>
+							<p>
+								Join our Discord, follow the onboarding steps,
+								and select the department you want to start in.
+							</p>
+						</details>
+
+						<details class="faq-item">
+							<summary>Is this an official department?</summary>
+							<p>
+								No. Florida Coast Roleplay is not affiliated
+								with any real world agencies.
+							</p>
+						</details>
+
+						<details class="faq-item">
+							<summary>Do I need experience?</summary>
+							<p>No.</p>
+						</details>
+
+						<details class="faq-item">
+							<summary>What roles are available?</summary>
+							<p>
+								Law enforcement, fire &amp; EMS, sheriff
+								operations, and civilian roleplay depending on
+								openings and community events.
+							</p>
+						</details>
+					</div>
+				</div>
+			</section>
+
+			<!-- Join CTA -->
+			<section class="join" id="join" aria-labelledby="join-title">
+				<div class="container">
+					<div class="join-card" data-animate>
+						<h2 class="join-title" id="join-title">
+							Ready to Join?
+						</h2>
+						<p class="join-desc">
+							Florida Coast Roleplay is open to new members.
+							Connect with us on Discord to get started with
+							onboarding and find your department.
+						</p>
+						<div class="join-actions">
+							<a
+								href={discordUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="btn btn-primary btn-lg"
+								>Join Our Discord</a
+							>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
 
 		<!-- Footer -->
 		<footer class="footer">
@@ -401,15 +539,18 @@ const jsonLd = {
 				<div class="footer-brand">
 					<span class="footer-name">Florida Coast Roleplay</span>
 					<p class="footer-tagline">
-						Fort Lauderdale &amp; Broward County (NOT OFFICAL)
+						Fort Lauderdale &amp; Broward County (NOT OFFICIAL)
 					</p>
 				</div>
 				<div class="footer-links">
 					<a href="#departments">Departments</a>
 					<a href="#about">About</a>
 					<a href="#gallery">Gallery</a>
-					<a href="https://discord.gg/YcBhpB3pxU" target="_blank"
-						>Join</a
+					<a href="#faq">FAQ</a>
+					<a
+						href={discordUrl}
+						target="_blank"
+						rel="noopener noreferrer">Join</a
 					>
 				</div>
 				<p class="footer-copy">
@@ -418,7 +559,7 @@ const jsonLd = {
 			</div>
 		</footer>
 
-		<script>
+		<script defer>
 			// Subtle fade-in on scroll
 			const observer = new IntersectionObserver(
 				(entries) => {
@@ -436,13 +577,14 @@ const jsonLd = {
 				observer.observe(el);
 			});
 
-			// Mobile nav toggle
+			// Mobile nav toggle (with accessibility state)
 			const toggle = document.querySelector(".nav-toggle");
 			const navLinks = document.querySelector(".nav-links");
 			if (toggle && navLinks) {
 				toggle.addEventListener("click", () => {
-					navLinks.classList.toggle("open");
+					const isOpen = navLinks.classList.toggle("open");
 					toggle.classList.toggle("active");
+					toggle.setAttribute("aria-expanded", String(isOpen));
 				});
 			}
 		</script>
